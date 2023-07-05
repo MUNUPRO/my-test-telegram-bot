@@ -1,7 +1,7 @@
 from telegram.ext import *
 from telegram import *
 
-Token = '5676375736:AAErAYZ_tcBBp_Ya2pJpfnYZ6382e310NFw'
+Token = '6152413141:AAGVnf-4l2WnRce8Q68KUtAK_JOELxc_BO8'
 
 def start(update,context):
 	update.message.reply_text(f"Hii {update.effective_user.full_name}")
