@@ -1,17 +1,21 @@
-from telegram.ext import *
-from telegram import *
-
-Token = '6647286471:AAHBzbIYyuvq3sqYB1cEtPkFgXpu9TFVqB8'
-
-def start(update,context):
-	update.message.reply_text(f"Hii {update.effective_user.full_name}")
+import telebot
 
 
-updater = Updater(token = Token,use_context= True)
+api_key = "6647286471:AAHBzbIYyuvq3sqYB1cEtPkFgXpu9TFVqB8"
 
-ds = updater.dispatcher
+Bot = telebot.TeleBot(api_key)
 
-ds.add_handler(CommandHandler('start',start))
+print("Bot Started...")
 
-updater.start_polling()
-updater.idle()
+
+@Bot.message_handler(commands = ['start'])
+def send_start_command(msg):
+  Bot.send_message(msg.chat.id,"Dora Puaa")
+  
+
+@Bot.message_handler(func = lambda  msg: msg.text == msg.text)
+def send_prink(msg):
+  Bot.send_message(msg.chat.id,"Dora Puaa")
+  Bot.send_photo(msg.chat.id,open('rohan_dora_photo.jpg','rb'))
+
+Bot.polling()
